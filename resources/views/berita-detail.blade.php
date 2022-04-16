@@ -2,22 +2,19 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-12">
         <article>
             <!-- Post header-->
             <header class="mb-4">
-                <!-- Post title-->
-                <h1 class="fw-bolder mb-1">{{ $berita->title }}</h1>
-                <!-- Post meta content-->
-                <div class="text-muted fst-italic mb-2">{{ $berita->created_at->diffForHumans() }}, by {{ $berita->user->name }}</div>                
+                <div class="card mb-4">
+                    <a href="/berita/{{ $berita->slug }}"><img class="card-img-top" src="{{ asset('berita-images/' . $berita->image) }}" alt="..." /></a>
+                    <div class="card-body">
+                        <div class="small text-muted">{{ $berita->created_at->diffForHumans() }} , by {{ $berita->user->name }}</div>
+                        <h2 class="card-title">{{ $berita->title }}</h2>
+                        <p class="card-text">{!! $berita->description !!}</p>
+                    </div>
+                </div>
             </header>
-            
-            <!-- Preview image figure-->
-            <figure class="mb-4"><img class="img-fluid" width="1000" src="{{ asset('berita-images/' . $berita->image) }}" alt="..." /></figure>
-            <!-- Post content-->
-            <section class="mb-5">
-                <p class="fs-5 mb-4">{!! $berita->description !!}</p>
-            </section>
         </article>
     </div>
 </div>
