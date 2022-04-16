@@ -1,9 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('content')
-@extends('admin.layouts.main')
 
-@section('content')
 <div class="section-header">
     <h1>{{$title}}</h1>
   </div>
@@ -80,6 +78,5 @@
         </div>
       </div>
   </div>
-@endsection
-
+</div>
 @endsection
