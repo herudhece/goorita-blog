@@ -28,6 +28,7 @@
                 <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password">
               </div>
               
+              <a href="/admin/user" class="btn btn-secondary">Back</a>
               <button class="btn btn-primary" type="submit">Save</button>
         </form>
     </div>

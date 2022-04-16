@@ -33,6 +33,7 @@
                 <trix-editor input="description"></trix-editor>
               </div>
 
+              <a href="/admin/berita" class="btn btn-secondary">Back</a>
               <button class="btn btn-primary" type="submit">Save</button>
         </form>
     </div>
