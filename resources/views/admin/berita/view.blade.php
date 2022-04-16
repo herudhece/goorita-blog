@@ -10,24 +10,24 @@
           <tbody>
             <tr>
                 <th>Title</th>
-                <td>{{ $berita->title }}</td>
+                <td>{{ $model->title }}</td>
             </tr>
             <tr>
                 <th>Slug</th>
-                <td>{{ $berita->slug }}</td>
+                <td>{{ $model->slug }}</td>
             </tr>  
             <tr>
                 <th>Image</th>
-                <td><img src="{{ asset('berita-images/' . $berita->image) }}"></td>
+                <td><img src="{{ asset('berita-images/' . $model->image) }}"></td>
             </tr>  
             <tr>
                 <th>Deskripsi</th>
-                <td>{!! $berita->description !!}</td>
+                <td>{!! $model->description !!}</td>
             </tr>
 
             <tr>
                 <th>Publish Date</th>
-                <td>{{date('d-m-Y', strtotime($berita->published_date)) }}</td>
+                <td>{{date('d-m-Y', strtotime($model->published_date)) }}</td>
             </tr>
             
         </tbody>

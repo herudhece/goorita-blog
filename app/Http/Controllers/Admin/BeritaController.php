@@ -80,7 +80,7 @@ class BeritaController extends Controller
     {
         $berita = Berita::find($id);
         return view('admin.berita.view',[
-            'berita' => $berita,
+            'model' => $berita,
             'title' => 'Detail Berita'
         ]);
     }
