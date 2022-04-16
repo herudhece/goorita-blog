@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'test@blog.com',
                 'password' => bcrypt('admin')
             ]);
+        \App\Models\Berita::factory(10)->create();
     }
+    
 }

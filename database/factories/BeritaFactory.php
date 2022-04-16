@@ -14,7 +14,13 @@ class BeritaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->sentence(5),
+            'slug' => $this->faker->slug,
+            'description' => $this->faker->paragraph(300),
+            'short_description' => $this->faker->paragraph(2),
+            'user_id' => 1,
+            'image' => '1650076813.jpg',
+            'published_date' => now()
         ];
     }
 }
