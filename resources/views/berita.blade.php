@@ -1,43 +1,42 @@
 @extends('layouts.main')
 @section('content')
-
-<div class="row">
-    @foreach ($berita->skip(1) as $item)
-    <div class="col-lg-4">
-        <!-- berita post-->
-        <div class="card mb-4">
-            <a href="/berita/{{ $item->slug }}"><img class="card-img-top" src="{{ asset('berita-images/' . $item->image) }}" alt="..." /></a>
-            <div class="card-body">
-                <div class="small text-muted">{{ $item->created_at->diffForHumans() }}</div>
-                <h2 class="card-title h4">{{ $item->title }}</h2>
-                <p class="card-text">{!! $item->short_description !!}</p>
-                <a class="btn btn-primary" href="/berita/{{ $item->slug }}">Read more →</a>
-            </div>
-        </div>                
+<div class = "container">
+    <div class = "blog-content">
+    @foreach ($berita as $item)
+      <!-- item -->
+      <div class = "blog-item">
+        <div class = "blog-img">
+          <img src = "{{ asset('berita-images/' . $item->image) }}" alt = "">
+          <span><i class = "far fa-heart"></i></span>
+        </div>
+        <div class = "blog-text">
+          <span>{{ $item->created_at->diffForHumans() }}</span>
+          <h2>{{ $item->title }}</h2>
+          <p>{!! $item->short_description !!}</p>
+          <a href = "/blog/{{ $item->slug }}">Read More</a>
+        </div>
+      </div>
+      <!-- end of item -->
+      @endforeach
     </div>
-    @endforeach
-</div>
-<!-- Pagination-->
-<nav aria-label="Pagination">
-    <hr class="my-0" />
-    @if ($berita->hasPages())
-        @if ($berita->lastPage() > 1)
-        <ul class="pagination justify-content-center my-4">
-            <li class="page-item {{ ($berita->currentPage() == 1) ? 'disabled' : '' }}">
-                <a href="{{ $berita->url(1) }}" class="page-link">Prev</a>
-            </li>
-            @for ($i = 1; $i <= $berita->lastPage(); $i++)
-                <li class="page-item {{ ($berita->currentPage() == $i) ? 'active' : '' }}">
-                    <a class="page-link" href="{{ $berita->url($i) }}">{{ $i }}</a>
+    <div class="pro-pagination-style text-center mt-25">
+        @if ($blog->hasPages())
+            @if ($blog->lastPage() > 1)
+            <ul>
+                <li class="{{ ($blog->currentPage() == 1) ? ' active' : '' }}">
+                    <a href="{{ $blog->url(1) }}" class="fa fa-angle-double-left"></a>
                 </li>
-            @endfor
-            <li class="page-item {{ ($berita->currentPage() == $berita->lastPage()) ? ' disabled' : '' }}">
-                <a href="{{ $berita->url($berita->currentPage()+1) }}" class="page-link">Next</a>
-            </li>
-        </ul>
+                @for ($i = 1; $i <= $blog->lastPage(); $i++)
+                    <li >
+                        <a class="{{ ($blog->currentPage() == $i) ? 'active' : '' }}" href="{{ $blog->url($i) }}">{{ $i }}</a>
+                    </li>
+                @endfor
+                <li class="{{ ($blog->currentPage() == $blog->lastPage()) ? ' disabled' : '' }}">
+                    <a href="{{ $blog->url($blog->currentPage()+1) }}" class="fa fa-angle-double-right"></a>
+                </li>
+            </ul>
+            @endif
         @endif
-    @endif
-
-</nav>
-   
+    </div>
+  </div>
 @endsection

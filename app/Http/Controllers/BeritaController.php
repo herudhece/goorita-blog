@@ -16,14 +16,6 @@ class BeritaController extends Controller
         ]);
     }
 
-    public function berita()
-    {
-        $berita = Berita::latest()->paginate(5);
-        return view('berita',[
-            'berita' => $berita,
-            'title' => 'Berita'
-        ]);
-    }
 
     public function detail($slug)
     {

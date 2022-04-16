@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[BeritaController::class,'index']);
 
-Route::get('/berita',[BeritaController::class,'berita']);
 Route::get('/berita/{berita:slug}',[BeritaController::class,'detail']);
 
 
